@@ -22,6 +22,7 @@ public class  CameraMove extends Command {
 
     public CameraMove() {
     	requires(Robot.cameraSystem);
+    	requires(Robot.cameraSideSystem);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
@@ -37,6 +38,7 @@ public class  CameraMove extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.cameraSystem.takeZAxis(Robot.oi.joystick1);
+    	Robot.cameraSideSystem.takeJoystickButtons(Robot.oi.joystick1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
