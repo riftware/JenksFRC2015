@@ -36,6 +36,7 @@ public class  Drive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.driveSystem.takeJoystickInput(Robot.oi.joystick1);
+    	Robot.liftSystem.liftArm(Robot.oi.joystick2);
     }
 
     // Make this return true when this Command no longer needs to run execute()

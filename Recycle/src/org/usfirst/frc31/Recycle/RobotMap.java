@@ -12,8 +12,8 @@
 package org.usfirst.frc31.Recycle;
     
 import edu.wpi.first.wpilibj.*;
-
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
 import java.util.Vector;
 
 /**
@@ -27,22 +27,30 @@ public class RobotMap {
     public static Servo camServo;
     public static Servo camServo2;
     public static Solenoid pSolenoid;
+    public static Relay spike1;
+    public static Relay spike2;
+    public static AnalogPotentiometer pot1;
     public static PowerDistributionPanel pdp;
     public static CANTalon talon3;
     public static CANTalon talon4;
     public static CANTalon talon5;
     public static CANTalon talon6;
+    public static CANTalon talon7;
     public static RobotDrive mainDrive;
 
     public static void init() {
     	
         camServo = new Servo(0);
         camServo2 = new Servo(1);
+        spike1 = new Relay(0);
+        spike2 = new Relay(1);
         talon3 = new CANTalon(3);
         talon4 = new CANTalon(4);
         talon5 = new CANTalon(5);
         talon6 = new CANTalon(6);
+        talon7 = new CANTalon(7);
         pSolenoid = new Solenoid(0);
+        pot1 = new AnalogPotentiometer(0, 360, 0);
         pdp = new PowerDistributionPanel();
         mainDrive = new RobotDrive(talon3, talon4, talon5, talon6);
         LiveWindow.addActuator("CameraServo", "camServo", camServo);

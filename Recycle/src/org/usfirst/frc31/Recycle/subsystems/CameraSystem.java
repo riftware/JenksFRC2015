@@ -13,8 +13,8 @@ package org.usfirst.frc31.Recycle.subsystems;
 
 import org.usfirst.frc31.Recycle.RobotMap;
 import org.usfirst.frc31.Recycle.commands.*;
-import edu.wpi.first.wpilibj.*;
 
+import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
@@ -33,14 +33,6 @@ public class CameraSystem extends Subsystem {
     public void takeZAxis(Joystick one)
     {
     	camServo.set(-(one.getZ()/3) + .90);
-    	if (one.getRawButton(3))
-    	{
-    		pSolenoid.set(true);
-    	}
-    	else
-    	{
-    		pSolenoid.set(false);
-    	}
     }
 }
 

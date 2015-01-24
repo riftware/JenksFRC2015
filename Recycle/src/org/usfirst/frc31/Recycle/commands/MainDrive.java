@@ -10,6 +10,8 @@ public class MainDrive extends CommandGroup {
     public  MainDrive() {
     	addParallel(new Drive());
     	addParallel(new CameraMove());
+    	addParallel(new ArmSpin());
+    	//addParallel(new LiftArm());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
