@@ -36,9 +36,9 @@ public class RobotMap {
     public static Encoder driveSystemRfEncoder;
     public static Encoder driveSystemLrEncoder;
     public static Encoder driveSystemRrEncoder;
-    public static Compressor subsystem1Compressor;
-    public static AnalogPotentiometer subsystem1AnalogPotentiometer1;
-    public static Solenoid subsystem1Elevator;
+    public static Compressor toteElevatorCompressor;
+    public static AnalogPotentiometer toteElevatorAnalogPotentiometer1;
+    public static Solenoid toteElevatorElevator;
     public static Servo panTiltPanServo;
     public static Servo panTiltTiltServo;
 
@@ -80,14 +80,14 @@ public class RobotMap {
         LiveWindow.addSensor("DriveSystem", "RrEncoder", driveSystemRrEncoder);
         driveSystemRrEncoder.setDistancePerPulse(1.0);
         driveSystemRrEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
-        subsystem1Compressor = new Compressor(0);
+        toteElevatorCompressor = new Compressor(1);
         
         
-        subsystem1AnalogPotentiometer1 = new AnalogPotentiometer(1, 270.0, 136.0);
-        LiveWindow.addSensor("Subsystem 1", "Analog Potentiometer 1", subsystem1AnalogPotentiometer1);
+        toteElevatorAnalogPotentiometer1 = new AnalogPotentiometer(2, 270.0, 136.0);
+        LiveWindow.addSensor("ToteElevator", "Analog Potentiometer 1", toteElevatorAnalogPotentiometer1);
         
-        subsystem1Elevator = new Solenoid(0, 0);
-        LiveWindow.addActuator("Subsystem 1", "Elevator", subsystem1Elevator);
+        toteElevatorElevator = new Solenoid(1, 1);
+        LiveWindow.addActuator("ToteElevator", "Elevator", toteElevatorElevator);
         
         panTiltPanServo = new Servo(0);
         LiveWindow.addActuator("PanTilt", "PanServo", panTiltPanServo);
