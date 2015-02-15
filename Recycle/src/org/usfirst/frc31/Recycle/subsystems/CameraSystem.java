@@ -23,8 +23,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class CameraSystem extends Subsystem {
     Servo camServo = RobotMap.camServo;
-    Solenoid pSolenoid = RobotMap.pSolenoid;
-    PowerDistributionPanel pdp = RobotMap.pdp;
     
     public void initDefaultCommand() {
     	
@@ -32,7 +30,7 @@ public class CameraSystem extends Subsystem {
     
     public void takeZAxis(Joystick one)
     {
-    	camServo.set(-(one.getZ()/3) + .90);
+    	//camServo.set(-(one.getZ()/3) + .90);
     }
 }
 

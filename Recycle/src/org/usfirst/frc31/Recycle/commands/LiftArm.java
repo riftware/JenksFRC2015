@@ -12,23 +12,23 @@ public class LiftArm extends Command {
     public LiftArm() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.liftPSystem);
+    	requires(Robot.liftAngle);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
         //Robot.liftPSystem.enable();
-        Robot.liftPSystem.setSetpoint(180);
+        //Robot.liftPSystem.setSetpoint(180);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
+    	Robot.liftAngle.liftArm(Robot.oi.joystick1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Math.abs(Robot.liftPSystem.getSetpoint() - Robot.liftPSystem.getPosition()) < 5;
+        return false;
     }
 
     // Called once after isFinished returns true

@@ -15,10 +15,13 @@ import org.usfirst.frc31.Recycle.RobotMap;
 import org.usfirst.frc31.Recycle.commands.*;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CANTalon.ControlMode;
+import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Servo;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
@@ -41,9 +44,16 @@ public class DriveSystem extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void takeJoystickInput(Joystick one)
+    public void takeJoystickInput(Joystick two)
     {
-    	mainDrive.arcadeDrive(one);
+        mainDrive.mecanumDrive_Cartesian(two.getY(), two.getX(), -two.getZ(), 0);
+    }
+    
+    public void goForward()
+    {
+    	talon4.set(.5);
+    	talon6.set(.5);
+//    	Timer.delay(5);
     }
 }
 

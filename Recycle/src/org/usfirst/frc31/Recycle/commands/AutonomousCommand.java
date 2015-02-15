@@ -20,6 +20,7 @@ import org.usfirst.frc31.Recycle.Robot;
 public class  AutonomousCommand extends Command {
 
     public AutonomousCommand() {
+    	requires(Robot.driveSystem);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
@@ -34,6 +35,7 @@ public class  AutonomousCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.driveSystem.goForward();
     }
 
     // Make this return true when this Command no longer needs to run execute()

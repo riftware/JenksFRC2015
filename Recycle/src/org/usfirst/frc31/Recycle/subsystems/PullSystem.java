@@ -21,28 +21,35 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class ArmSystem extends Subsystem {
-    Relay spike1 = RobotMap.spike1;
-    Relay spike2 = RobotMap.spike2;
+public class PullSystem extends Subsystem {
+	Solenoid pSolenoid1 = RobotMap.pSolenoid1;
     
     public void initDefaultCommand() {
     	
     }
     
-    public void spinArm(Joystick one)
+    public void usePneumatics(Joystick one)
     {
-    	if (one.getRawButton(1))
+    	if (one.getRawButton(4))
     	{
-        	spike1.set(Relay.Value.kOn);
-        	spike2.set(Relay.Value.kOn);
-    		spike1.set(Relay.Value.kReverse);
-    		spike2.set(Relay.Value.kForward);
+    		pSolenoid1.set(true);
+    		System.out.println("solenoid on");
     	}
     	else
     	{
-    		spike1.set(Relay.Value.kOff);
-    		spike2.set(Relay.Value.kOff);
+    		pSolenoid1.set(false);
+    		System.out.println("solenoid off");
     	}
+    }
+    
+    public void push()
+    {
+    	pSolenoid1.set(true);
+    }
+    
+    public void pull()
+    {
+    	pSolenoid1.set(false);
     }
 }
 

@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ArmSpin extends Command {
+public class PullPneumatics extends Command {
 
-    public ArmSpin() {
-    	requires(Robot.armSystem);
+    public PullPneumatics() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.pullSystem);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +21,7 @@ public class ArmSpin extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.armSystem.spinArm(Robot.oi.joystick1);
+    	Robot.pullSystem.pull();
     }
 
     // Make this return true when this Command no longer needs to run execute()

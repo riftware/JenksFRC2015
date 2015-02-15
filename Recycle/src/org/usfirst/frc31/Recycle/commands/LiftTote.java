@@ -1,17 +1,19 @@
 package org.usfirst.frc31.Recycle.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class MainDrive extends CommandGroup {
+public class LiftTote extends CommandGroup {
     
-    public  MainDrive() {
-    	addParallel(new Drive());
-    	addParallel(new CameraMove());
-    	addParallel(new ArmSpin());
-    	addParallel(new LiftArm());
+    public  LiftTote() {
+    	addSequential(new MoveAngleUp());
+    	addSequential(new PushPneumatics());
+    	Timer.delay(.2);
+    	addSequential(new PullPneumatics());
+    	
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
